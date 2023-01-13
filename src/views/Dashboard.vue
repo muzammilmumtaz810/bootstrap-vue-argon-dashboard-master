@@ -13,7 +13,7 @@
 
             <template slot="footer">
               <span class="text-success mr-2">3.48%</span>
-              <span class="text-nowrap">Since last month jutt gandu</span>
+              <span class="text-nowrap">Since last month</span>
             </template>
           </stats-card>
         </b-col>
