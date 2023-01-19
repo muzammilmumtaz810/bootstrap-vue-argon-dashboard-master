@@ -95,9 +95,12 @@
     </b-container>
   </div>
 </template>
+
 <script>
+import axios from 'axios'
 
   export default {
+    
     name: 'register',
     data() {
       return {
@@ -110,8 +113,17 @@
       }
     },
     methods: {
-      onSubmit() {
-        // this will be called only after form is valid. You can do an api call here to register users
+     async onSubmit() {
+        let result = await axios.post("http://localhost:3000/user", {
+                name: this.model.name,
+                email: this.model.email,
+                password: this.model.password
+            });
+            console.log(result);
+            if (result.status == 201) {
+                alert("sign up done");
+            }
+        
       }
     }
 

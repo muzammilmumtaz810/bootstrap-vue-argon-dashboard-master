@@ -1,10 +1,10 @@
 <template>
     <b-card no-body class="bg-default shadow">
-        <b-card-header class="bg-transparent border-0">
-            <h3 class="mb-0 text-white">Dark table</h3>
-        </b-card-header>
+        <!-- <b-card-header class="bg-transparent border-0">
+            <h3 class="mb-0 text-white">Dark table</h3> -->
+      
 
-        <el-table class="table-responsive table table-dark"
+        <!-- <el-table class="table-responsive table table-dark"
                   header-row-class-name="thead-dark"
                   :data="projects">
             <el-table-column label="Project"
@@ -70,7 +70,7 @@
                     </div>
                 </template>
             </el-table-column>
-        </el-table>
+        </el-table> -->
 
     </b-card>
 </template>

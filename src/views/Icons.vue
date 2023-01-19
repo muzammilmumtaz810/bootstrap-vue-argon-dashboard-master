@@ -1185,6 +1185,7 @@
     </b-container>
   </div>
 </template>
+
 <script>
   import Vue from 'vue'
   import VueClipboard from 'vue-clipboard2'

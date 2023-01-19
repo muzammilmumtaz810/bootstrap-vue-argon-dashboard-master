@@ -3,7 +3,7 @@
     <template v-slot:header>
       <b-row align-v="center">
         <b-col>
-          <h3 class="mb-0">Social traffic</h3>
+          <h3 class="mb-0">Social tra</h3>
         </b-col>
         <b-col class="text-right">
           <base-button size="sm" type="primary">See all</base-button>

@@ -110,12 +110,12 @@
               </b-col>
             </b-row>
 
-            <bar-chart
+            <!-- <bar-chart
               :height="350"
               ref="barChart"
               :chart-data="redBarChart.chartData"
             >
-            </bar-chart>
+            </bar-chart> -->
           </card>
         </b-col>
       </b-row>
@@ -138,8 +138,8 @@
 <script>
   // Charts
   import * as chartConfigs from '@/components/Charts/config';
-  import LineChart from '@/components/Charts/LineChart';
-  import BarChart from '@/components/Charts/BarChart';
+  // import LineChart from '@/components/Charts/LineChart';
+  // import BarChart from '@/components/Charts/BarChart';
 
   // Components
   import BaseProgress from '@/components/BaseProgress';
@@ -151,8 +151,8 @@
 
   export default {
     components: {
-      LineChart,
-      BarChart,
+      // LineChart,
+      // BarChart,
       BaseProgress,
       StatsCard,
       PageVisitsTable,

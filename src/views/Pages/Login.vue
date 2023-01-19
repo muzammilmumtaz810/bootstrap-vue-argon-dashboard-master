@@ -85,6 +85,7 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
   export default {
     data() {
       return {
@@ -96,8 +97,18 @@
       };
     },
     methods: {
-      onSubmit() {
-        // this will be called only after form is valid. You can do api call here to login
+   async  onSubmit() {
+    let result = await axios.get(
+                `http://localhost:3000/user?email=${this.model.email}&password=${this.model.password}`
+            )
+           
+            if (result.status == 200 && result.data.length > 0) {
+
+                localStorage.setItem("user info", JSON.stringify(result.data[0]))
+                this.$router.push({
+                    name: 'dashboard'
+                })
+            }
       }
     }
   };
