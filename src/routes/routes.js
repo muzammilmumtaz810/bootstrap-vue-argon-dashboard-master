@@ -1,8 +1,6 @@
 import DashboardLayout from "@/views/Layout/DashboardLayout.vue";
 import AuthLayout from "@/views/Pages/AuthLayout.vue";
 import Update from "@/views/Pages/Update.vue";
-import Add from "@/views/Pages/Add.vue";
-import Addrest from "@/views/Pages/AddRest.vue";
 import NotFound from "@/views/NotFoundPage.vue";
 
 const routes = [
@@ -47,9 +45,31 @@ const routes = [
           import(/* webpackChunkName: "demo" */ "../views/RegularTables.vue")
       },
 
-      { name: "employe", component: Addrest, path: "/Addrest" },
-      { name: "Update", component: Update, path: "/update/:id" },
-      { name: "employe", component: Add, path: "/add" },
+      {
+       name: "ADD RESTAURANTS",
+       path: "/Addrest" ,
+       component: () =>
+       import(/* webpackChunkName: "demo" */ "../views/Pages/AddRest.vue")
+     
+    },
+    {
+      name: "ADD EMPLOYEE",
+      path: "/add" ,
+      component: () =>
+      import(/* webpackChunkName: "demo" */ "../views/Pages/Add.vue")
+    
+   },
+   {
+    name: "RESTAURANTS",
+    path: "/rest" ,
+    component: () =>
+    import(/* webpackChunkName: "demo" */ "../views/Pages/RestList.vue")
+  
+ },
+
+
+      { name: "UPDATE RESTAURANTS", component: Update, path: "/update/:id" },
+      
     ]
   },
   {

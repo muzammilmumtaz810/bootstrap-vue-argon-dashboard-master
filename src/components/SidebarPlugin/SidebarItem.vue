@@ -51,6 +51,7 @@
       >
         <template v-if="addLink">
           <span class="nav-link-text">{{ link.name }}</span>
+          
         </template>
         <template v-else>
           <i :class="link.icon"></i>

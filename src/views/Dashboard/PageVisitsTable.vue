@@ -5,15 +5,11 @@
             <b-col>
                 <h3 class="mb-0">RESTAURANTS</h3>
             </b-col>
-            <b-col>
-                <router-link to='/Addrest'><button class="btn btn-sm btn-primary">ADD RESTAURANT</button> </router-link></b-col>
-            <b-col><router-link to='/add'><button class="btn btn-sm btn-primary">ADD EMPLOYEE</button> </router-link>
-
-            </b-col>
         </b-row>
     </template>
 
-    <el-table class="table-responsive table" :data="resturent" header-row-class-name="thead-light">
+    <el-table class="table-responsive table" :data="resturent" :currentPage.sync="currentPage" :pageSize="5" @totalPagesChanged="totalPages = $event" header-row-class-name="thead-light">
+
         <el-table-column label="Resturent" min-width="90px" prop="id">
             <template v-slot="{row}">
                 <div class="font-weight-600" min-width="90px">{{row.name}}</div>
@@ -29,13 +25,18 @@
         <el-table-column label="ACTIONS" min-width="150px" prop="">
             <template v-slot="{row}">
 
-                <router-link :to="'/update/'+row.id"><button class="btn btn-sm btn-primary">update</button></router-link>
+                <router-link :to="'/update/'+row.id"><button class="btn btn-sm btn-primary ">Update</button></router-link>
 
-                <button v-on:click="deleteresturent(row.id)" class="btn btn-sm btn-primary">Delete</button>
+                <button v-on:click="deleteresturent(row.id)" class="btn btn-sm btn-primary ml-3">Delete</button>
 
             </template>
         </el-table-column>
     </el-table>
+
+    <b-card-footer class="py-4 d-flex justify-content-end">
+
+        <base-pagination v-model="currentPage" :per-page="1" :total="2"></base-pagination>
+    </b-card-footer>
 
 </b-card>
 </template>
@@ -60,6 +61,8 @@ export default {
     },
     data() {
         return {
+            currentPage: 1,
+            totalPages: 0,
 
             employe: [],
             resturent: [],

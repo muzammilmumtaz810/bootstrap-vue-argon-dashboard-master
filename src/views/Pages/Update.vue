@@ -43,58 +43,71 @@
             </b-col>
         </b-row>
     </base-header>
+
     <b-container fluid class="mt--7">
-        <b-form @submit.prevent="updateresturent">
+        <b-row>
+          <b-col>
+            <b-card no-body class="border-0">
+              <div id="map-custom" class="map-canvas"
+                   style="height: 600px;">
+                   <b-form @submit.prevent="updateresturent">
 
-            <b-row align-v="center">
-                <b-col>
-                    <h3 class="mb-5 mt-5 ml-4">UPDATE RESTAURANT</h3>
-                </b-col>
-            </b-row>
+                    <b-row align-v="center">
+                        <b-col>
+                            <h3 class="mb-5 mt-5 ml-4">UPDATE RESTAURANT</h3>
+                        </b-col>
+                    </b-row>
+        
+                    <div class="pl-lg-4">
+                        <b-row>
+                            <b-col lg="6">
+                                <base-input type="text" label="NAME" placeholder="NAME" v-model="resturent.name">
+                                </base-input>
+                            </b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col lg="6">
+                                <base-input type="text" label="ADDRESS" placeholder="ADDRESS " v-model="resturent.address">
+                                </base-input>
+                            </b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col lg="6">
+                                <base-input type="text" label="CONTACT" placeholder="CONTACT" v-model="resturent.contect">
+                                </base-input>
+                            </b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col>
 
-            <div class="pl-lg-4">
-                <b-row>
-                    <b-col lg="6">
-                        <base-input type="text" label="NAME" placeholder="NAME" v-model="resturent.name">
-                        </base-input>
-                    </b-col>
-                </b-row>
-                <b-row>
-                    <b-col lg="6">
-                        <base-input type="text" label="ADDRESS" placeholder="ADDRESS " v-model="resturent.address">
-                        </base-input>
-                    </b-col>
-                </b-row>
-                <b-row>
-                    <b-col lg="6">
-                        <base-input type="text" label="CONTACT" placeholder="CONTACT" v-model="resturent.contect">
-                        </base-input>
-                    </b-col>
-                </b-row>
-                <b-row>
-                    <b-col>
-    
-                        <b-p>Add employee to your resturent from employee list</b-p> 
-                    </b-col>
-                    <b-col>
-                        <b-select multiple v-model="selected" style="width:200px;border:none">
-                <option disabled value="">plz select employee</option>
-                <option v-for="item in employe" :key="item.id">{{item.name}}</option>
-            </b-select>
-                    </b-col>
-                    <b-col>
-                   <b-p>{{ selected }}</b-p> 
-                    </b-col>
-                    <b-col>
+                                <label class="form-control-label">ADD EMPLOYEE TO RESTAURANT</label>
+                            </b-col>
 
-                        <button v-on:click="updateresturent" class="btn btn-sm btn-primary">UPDATE</button>
-                    </b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col>
+                                <b-form-select multiple v-model="selected">
 
-                </b-row>
-            </div>
-        </b-form>
+                                    <option v-for="item in employe" :key="item.id">{{item.name}}</option>
+                                </b-form-select>
+                            </b-col>
+                            <b-col>
+                                <b-p>{{ selected.join(',') }}</b-p>
+                            </b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col class="mt-4">
 
-    </b-container>
+                                <button v-on:click="updateresturent" class="btn btn-sm btn-primary">UPDATE RESTAURANT</button>
+                            </b-col>
+                        </b-row>
+                    </div>
+                </b-form>
+                </div>
+            </b-card>
+          </b-col>
+        </b-row>
+      </b-container>
 </div>
 </template>
 

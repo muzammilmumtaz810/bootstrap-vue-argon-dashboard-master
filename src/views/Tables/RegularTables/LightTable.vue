@@ -4,20 +4,21 @@
     
     
     <b-card-header class="border-0">
-        <router-link to="add"></router-link>
+        <!-- <router-link to="add"></router-link> -->
         <h3 class="mb-0">Restaurants</h3>
         
         
     </b-card-header>
 
-    <table class="table-responsive table">
+    <v-table class="table-responsive table" :currentPage.sync="currentPage"
+    :pageSize="5" @totalPagesChanged="totalPages = $event">
         <thead class="thead-dark">
         <tr>
            
             <td>NAME</td>
             <td>ADDRESS</td>
             <td>CONTECT</td>
-            <td>UPDATE RESTAURANTS</td>
+            
         
         </tr>
     </thead>
@@ -27,15 +28,19 @@
             <td> {{item.name}} </td>
             <td> {{item.address}} </td>
             <td> {{item.contect}} </td>
-            <td> <router-link :to="'/update/'+item.id">Update Restaurants</router-link> </td>
+            <!-- <td> <router-link :to="'/update/'+item.id">Update Restaurants</router-link> </td> -->
            
         </tr>
     </tbody>
-    </table>
+    </v-table>
+    <smart-pagination
+    :currentPage.sync="currentPage"
+    :totalPages="totalPages"
+  />
 
-    <!-- <b-card-footer class="py-4 d-flex justify-content-end">
-        <base-pagination v-model="currentPage" :per-page="10" :total="50"></base-pagination>
-    </b-card-footer> -->
+     <b-card-footer class="py-4 d-flex justify-content-end">
+    <base-pagination v-model="currentPage" :per-page="2" :total="10"></base-pagination> 
+    </b-card-footer> 
 </b-card>
 </template>
 
@@ -48,6 +53,8 @@ export default {
     },
     data() {
         return {
+            currentPage: 1,
+    totalPages: 0,
 
             currentPage: 1,
             resturent: [],

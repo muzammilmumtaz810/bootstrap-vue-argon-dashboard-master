@@ -11,11 +11,21 @@
           }"
         >
         </sidebar-item>
+        <sidebar-item
+            :link="{
+              name: 'Restaurants',
+              path: '/rest',
+              icon: 'ni ni-planet text-blue'
+              }"
+            >
+        </sidebar-item>
+
+        
 
         <sidebar-item
             :link="{
-              name: 'Icons',
-              path: '/icons',
+              name: 'Add Employee',
+              path: '/add',
               icon: 'ni ni-planet text-blue'
               }"
             >
