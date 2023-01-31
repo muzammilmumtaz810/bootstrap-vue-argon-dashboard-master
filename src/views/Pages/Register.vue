@@ -121,7 +121,10 @@ import axios from 'axios'
             });
             console.log(result);
             if (result.status == 201) {
-                alert("sign up done");
+                
+              this.$router.push({
+                    name: 'login'
+                })
             }
         
       }

@@ -51,56 +51,37 @@
                         <b-form>
                             <b-row align-v="center">
                                 <b-col>
-                                    <h3 class="mb-5 mt-5 ml-4"> RESTAURANT</h3>
+                                    <h3 class="mb-5 mt-5 ml-4">ADD EMPLOYEE</h3>
                                 </b-col>
                             </b-row>
-
                             <div class="pl-lg-4">
                                 <b-row>
                                     <b-col lg="6">
-                                        <base-input type="text" label="NAME" placeholder="NAME" v-model="resturent.name">
+                                        <base-input type="text" label="NAME" placeholder="NAME" v-model="employe.name">
                                         </base-input>
                                     </b-col>
                                 </b-row>
                                 <b-row>
                                     <b-col lg="6">
-                                        <base-input type="text" label="ADDRESS" placeholder="ADDRESS " v-model="resturent.address">
+                                        <base-input type="text" label="ADDRESS" placeholder="ADDRESS " v-model="employe.address">
                                         </base-input>
                                     </b-col>
                                 </b-row>
                                 <b-row>
                                     <b-col lg="6">
-                                        <base-input type="text" label="CONTACT" placeholder="CONTACT" v-model="resturent.contect">
+                                        <base-input type="text" label="CONTACT" placeholder="CONTACT" v-model="employe.contect">
                                         </base-input>
                                     </b-col>
                                 </b-row>
                                 <b-row>
                                     <b-col>
 
-                                        <label class="form-control-label">ADD EMPLOYEE TO RESTAURANT</label>
+                                        <button v-on:click="Addemploye" class="btn btn-sm btn-primary">ADD EMPLOYEE</button>
                                     </b-col>
 
-                                </b-row>
-                                <b-row>
-                                    <b-col>
-                                        <b-form-select multiple v-model="selected">
-
-                                            <option v-for="item in employe" :key="item.id">{{item.name}}</option>
-                                        </b-form-select>
-                                    </b-col>
-                                    <b-col>
-                                        <b-p>{{ selected.join(',') }}</b-p>
-                                    </b-col>
-                                </b-row>
-                                <b-row>
-                                    <b-col class="mt-4">
-
-                                        <button v-on:click="addresturent" class="btn btn-sm btn-primary">ADD RESTAURANT</button>
-                                    </b-col>
                                 </b-row>
                             </div>
                         </b-form>
-
                     </div>
                 </b-card>
             </b-col>
@@ -110,46 +91,45 @@
 </div>
 </template>
 
+  
 <script>
 import axios from 'axios'
-
 export default {
+
     data() {
         return {
-
-            employe: [],
-            selected: [],
-            resturent: {
+            employe: {
                 name: '',
                 address: '',
                 contect: '',
+                resturent_id:''
+                
 
             }
         }
 
     },
     methods: {
-        async addresturent() {
-            const result = await axios.post("http://localhost:3000/resturent/", {
-                name: this.resturent.name,
-                address: this.resturent.address,
-                contect: this.resturent.contect,
-                employelist: this.selected
+        async Addemploye() {
+            let user = localStorage.getItem("user info");
+            this.name = JSON.parse(user).name
+            const result = await axios.post('http://localhost:3000/employe/', {
+                name: this.employe.name,
+                address: this.employe.address,
+                contect: this.employe.contect,
+                resturent_id:''
+
             });
+
             if (result.status == 201) {
                 this.$router.push({
-                    name: 'dashboard'
+    
+                    name: 'EMPLOYEE'
                 });
             }
-        },
-        async employeloaddata() {
-            let result = await axios.get("http://localhost:3000/employe");
-            this.employe = result.data
+
         }
     },
-    mounted() {
-        this.employeloaddata()
-    }
 
 }
 </script>

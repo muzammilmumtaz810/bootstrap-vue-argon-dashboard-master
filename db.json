@@ -1,0 +1,260 @@
+{
+  "user": [
+    {
+      "name": "muzammil",
+      "email": "muzammil@test.com",
+      "password": "123",
+      "id": 1
+    },
+    {
+      "name": "muzammil",
+      "email": "muzammil@test.com",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "name": "ustad",
+      "email": "ustad@test.com",
+      "password": "123",
+      "id": 3
+    },
+    {
+      "name": "dani",
+      "email": "dani@test.com",
+      "password": "123",
+      "id": 4
+    },
+    {
+      "name": "ustad",
+      "email": "ustad@test.com",
+      "password": "123",
+      "id": 5
+    },
+    {
+      "name": "ustad",
+      "email": "ustad@test.com",
+      "password": "123",
+      "id": 6
+    },
+    {
+      "name": "mubeen",
+      "email": "mubeen@test.com",
+      "password": "123",
+      "id": 7
+    },
+    {
+      "name": "ustad",
+      "email": "ustad@test.com",
+      "password": "123",
+      "id": 8
+    },
+    {
+      "name": "mother",
+      "email": "mother@test.com",
+      "password": "123",
+      "id": 9
+    },
+    {
+      "name": "ustad",
+      "email": "ustad@test.com",
+      "password": "123",
+      "id": 10
+    },
+    {
+      "name": "father",
+      "email": "father@test.com",
+      "password": "123",
+      "id": 11
+    },
+    {
+      "name": "adnan",
+      "email": "adnan@test.com",
+      "password": "123456",
+      "id": 12
+    },
+    {
+      "name": "adnan",
+      "email": "adnan@test.com",
+      "password": "123456",
+      "id": 13
+    },
+    {
+      "name": "mother",
+      "email": "mother@test.com",
+      "password": "123456",
+      "id": 14
+    },
+    {
+      "name": "mother",
+      "email": "mother@test.com",
+      "password": "123456",
+      "id": 15
+    },
+    {
+      "name": "ustad",
+      "email": "ustad@test.com",
+      "password": "123456",
+      "id": 16
+    },
+    {
+      "name": "ayesha",
+      "email": "ayesha@test.com",
+      "password": "123456",
+      "id": 17
+    },
+    {
+      "name": "tunu",
+      "email": "tunu@test.com",
+      "password": "123456",
+      "id": 18
+    },
+    {
+      "name": "tunu",
+      "email": "tunu@test.com",
+      "password": "123456",
+      "id": 19
+    },
+    {
+      "name": "tunu",
+      "email": "tunu@test.com",
+      "password": "123456",
+      "id": 20
+    },
+    {
+      "email": "father@test.com",
+      "password": "123456",
+      "id": 21
+    },
+    {
+      "email": "tunu@test.com",
+      "password": "123456",
+      "id": 22
+    },
+    {
+      "name": "sadia",
+      "email": "sadia@test.com",
+      "password": "123456",
+      "id": 23
+    },
+    {
+      "email": "tunu@test.com",
+      "password": "123456",
+      "id": 24
+    },
+    {
+      "email": "tunu@test.com",
+      "password": "123456",
+      "id": 25
+    },
+    {
+      "name": "choti",
+      "email": "choti@test.com",
+      "password": "123456",
+      "id": 26
+    },
+    {
+      "email": "tunu@test.com",
+      "password": "123456",
+      "id": 27
+    },
+    {
+      "name": "nidzz",
+      "email": "nidzz@test.com",
+      "password": "123456",
+      "id": 28
+    }
+  ],
+  "resturent": [
+    {
+      "name": "KFC",
+      "address": "kibjbhj",
+      "contect": "xxx",
+      "id": 1
+    },
+    {
+      "name": "koi b",
+      "address": "xxxxx",
+      "contect": "xxx",
+      "id": 2
+    },
+    {
+      "name": "jxdvjhs",
+      "address": "kch kch",
+      "contect": "xxx",
+      "id": 3
+    }
+  ],
+  "employe": [
+    {
+      "name": "Dani",
+      "address": "asd",
+      "contect": "asd",
+      "resturent_id": 5,
+      "id": 1
+    },
+    {
+      "name": "ustad",
+      "address": "ssss",
+      "contect": "dfbvdfgbdx",
+      "resturent_id": 5,
+      "id": 2
+    },
+    {
+      "name": "muzammil",
+      "address": "aasdcfaseda",
+      "contect": "adadasd",
+      "resturent_id": 1,
+      "id": 3
+    },
+    {
+      "name": "mikall",
+      "address": "isb",
+      "contect": "0302111",
+      "resturent_id": 3,
+      "id": 4
+    },
+    {
+      "name": "miral",
+      "address": "gggg",
+      "contect": "030274555",
+      "resturent_id": 2,
+      "id": 5
+    },
+    {
+      "name": "loi",
+      "address": "loi",
+      "contect": "123",
+      "resturent_id": "",
+      "id": 6
+    },
+    {
+      "name": "loiiii",
+      "address": "m,kkk",
+      "contect": "163030",
+      "resturent_id": "",
+      "id": 7
+    }
+  ],
+  "employeac": [
+    {
+      "name": "ustad",
+      "password": "123",
+      "id": 1
+    },
+    {
+      "name": "nida",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "name": "dani",
+      "password": "123",
+      "id": 3
+    },
+    {
+      "name": "miku",
+      "password": "123",
+      "id": 4
+    }
+  ]
+}

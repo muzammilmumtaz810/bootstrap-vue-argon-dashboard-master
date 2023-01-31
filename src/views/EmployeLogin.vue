@@ -6,9 +6,8 @@
         <div class="header-body text-center mb-7">
           <b-row class="justify-content-center">
             <b-col xl="5" lg="6" md="8" class="px-5">
-              <h1 class="text-white">Welcome!</h1>
-              <p class="text-lead text-white">Use these awesome forms to login or create new account in your project for
-                free.</p>
+              <h1 class="text-white">Employee login!</h1>
+              
             </b-col>
           </b-row>
         </div>
@@ -44,19 +43,13 @@
               </div>
               <validation-observer v-slot="{handleSubmit}" ref="formValidator">
                 <b-form role="form" @submit.prevent="handleSubmit(onSubmit)">
-                  <base-input alternative
-                              class="mb-3"
-                              name="Email"
-                              :rules="{required: true, email: true}"
-                              prepend-icon="ni ni-email-83"
-                              placeholder="Email"
-                              v-model="model.email">
-                  </base-input>
+                  <base-input alternative class="mb-3" prepend-icon="ni ni-hat-3" placeholder="Name" name="Name" :rules="{required: true}" v-model="model.name">
+                </base-input>
 
                   <base-input alternative
                               class="mb-3"
                               name="Password"
-                              :rules="{required: true, min: 6}"
+                              :rules="{required: true, min: 3}"
                               prepend-icon="ni ni-lock-circle-open"
                               type="password"
                               placeholder="Password"
@@ -90,7 +83,7 @@ import axios from 'axios'
     data() {
       return {
         model: {
-          email: '',
+          name: '',
           password: '',
           rememberMe: false
         }
@@ -99,26 +92,18 @@ import axios from 'axios'
     methods: {
    async  onSubmit() {
     let result = await axios.get(
-                `http://localhost:3000/user?email=${this.model.email}&password=${this.model.password}`
+                `http://localhost:3000/employeac?name=${this.model.name}&password=${this.model.password}`
             )
            
             if (result.status == 200 && result.data.length > 0) {
 
                 localStorage.setItem("user info", JSON.stringify(result.data[0]))
                 this.$router.push({
-                    name: 'dashboard'
+                    name: 'profile'
                 })
             }
-          
-      },
-      mounted() {
-        let user = localStorage.getItem("user info");
-        if (user) {
-            this.$router.push({
-                name: 'dashboard'
-            })
-        }
-    }
+      }
     }
   };
 </script>
+

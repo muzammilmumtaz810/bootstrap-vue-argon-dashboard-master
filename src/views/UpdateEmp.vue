@@ -43,17 +43,20 @@
             </b-col>
         </b-row>
     </base-header>
+
     <b-container fluid class="mt--7">
         <b-row>
             <b-col>
                 <b-card no-body class="border-0">
                     <div id="map-custom" class="map-canvas" style="height: 600px;">
-                        <b-form>
+                        <b-form @submit.prevent="updateresturent">
+
                             <b-row align-v="center">
                                 <b-col>
-                                    <h3 class="mb-5 mt-5 ml-4">ADD EMPLOYEE</h3>
+                                    <h3 class="mb-5 mt-5 ml-4">UPDATE EMPLOYEE</h3>
                                 </b-col>
                             </b-row>
+
                             <div class="pl-lg-4">
                                 <b-row>
                                     <b-col lg="6">
@@ -73,12 +76,12 @@
                                         </base-input>
                                     </b-col>
                                 </b-row>
+
                                 <b-row>
-                                    <b-col>
+                                    <b-col class="mt-4">
 
-                                        <button v-on:click="Addemploye" class="btn btn-sm btn-primary">ADD EMPLOYEE</button>
+                                        <button v-on:click="updateresturent" class="btn btn-sm btn-primary">UPDATE EMPLOYEE</button>
                                     </b-col>
-
                                 </b-row>
                             </div>
                         </b-form>
@@ -87,17 +90,17 @@
             </b-col>
         </b-row>
     </b-container>
-
 </div>
 </template>
 
-  
 <script>
 import axios from 'axios'
-export default {
 
+export default {
+    neme: 'updateemp',
     data() {
         return {
+
             employe: {
                 name: '',
                 address: '',
@@ -108,21 +111,29 @@ export default {
 
     },
     methods: {
-        async Addemploye() {
-            const result = await axios.post('http://localhost:3000/employe/', {
+        async updateresturent() {
+            const result = await axios.put('http://localhost:3000/employe/' + this.$route.params.id, {
                 name: this.employe.name,
                 address: this.employe.address,
-                contect: this.employe.contect
-            });
+                contect: this.employe.contect,
 
-            if (result.status == 201) {
+            });
+            if (result.status == 200) {
+
                 this.$router.push({
-                    name: 'dashboard'
+                    name: 'EMPLOYEE'
                 });
             }
 
-        }
+        },
+     
     },
 
+    async mounted() {
+        const result = await axios.get('http://localhost:3000/employe/' + this.$route.params.id)
+        this.employe = result.data
+
+       
+    }
 }
 </script>

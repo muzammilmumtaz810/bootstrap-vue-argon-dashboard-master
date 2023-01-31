@@ -66,9 +66,9 @@
             <span>Support</span>
           </b-dropdown-item>
           <div class="dropdown-divider"></div>
-          <b-dropdown-item href="#!">
+          <b-dropdown-item v-on:click="logout">
             <i class="ni ni-user-run"></i>
-            <span>Logout</span>
+            <span >Logout</span>
           </b-dropdown-item>
 
         </template>
@@ -110,6 +110,11 @@ export default {
     };
   },
   methods: {
+    logout() {
+    localStorage.removeItem("user info");
+    this.$router.push({ name: "login" });
+  },
+
     capitalizeFirstLetter(string) {
       return string.charAt(0).toUpperCase() + string.slice(1);
     },

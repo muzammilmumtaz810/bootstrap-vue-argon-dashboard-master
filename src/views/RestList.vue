@@ -62,9 +62,14 @@
                                     <b-col></b-col>
                                     <b-col></b-col>
                                     <b-col></b-col>
+                                    <b-col></b-col>
+                                    <b-col></b-col>
+                                    <b-col></b-col>
+                                    <b-col></b-col>
                                     <b-col>
-                                        <router-link to="/Addrest"><button class="btn btn-sm btn-primary ">ADD RESTAURANTS</button></router-link>
+                                        <router-link to="/Addrest"><button v-if="localStorageValue" class="btn btn-sm btn-primary ">Add Restaurant</button></router-link>
                                     </b-col>
+
                                 </b-row>
                             </template>
 
@@ -81,16 +86,22 @@
                                 </el-table-column>
                                 <el-table-column label="EMPLOYES" min-width="90px" prop="">
                                     <template v-slot="{row}">
-                                        {{row.employelist.join(', ') }}
+                                        <div v-for="item in employe" :key="item.id">
+
+                                            <p v-if="row.id==item.resturent_id">
+                                                {{ item.name }}
+                                            </p>
+
+                                        </div>
                                     </template>
                                 </el-table-column>
 
                                 <el-table-column label="ACTIONS" min-width="150px" prop="">
                                     <template v-slot="{row}">
 
-                                        <router-link :to="'/update/'+row.id"><button class="btn btn-sm btn-primary ">Update</button></router-link>
+                                        <router-link :to="'/update/'+row.id"><a class="btn btn-sm btn-primary ">Update</a></router-link>
 
-                                        <button v-on:click="deleteresturent(row.id)" class="btn btn-sm btn-primary ml-3">Delete</button>
+                                        <a v-on:click="deleteresturent(row.id)" class="btn btn-sm btn-primary ml-3">Delete</a>
 
                                     </template>
                                 </el-table-column>
@@ -134,11 +145,18 @@ export default {
         return {
             currentPage: 1,
             resturent: [],
+            employe: []
 
         }
     },
+    computed: {
+    localStorageValue() {
+      return localStorage.getItem("user info") !== null;
+    }
+},
 
     methods: {
+       
         async loaddata() {
             let user = localStorage.getItem("user info");
             this.name = JSON.parse(user).name
@@ -152,9 +170,23 @@ export default {
                 this.loaddata()
             }
         },
+        async employeloaddata() {
+            let result = await axios.get("http://localhost:3000/employe");
+            this.employe = result.data;
+
+        }
     },
     mounted() {
         this.loaddata()
+        this.employeloaddata()
+       
+        let user = localStorage.getItem("user info");
+        if (!user) {
+            this.$router.push({
+                name: 'login'
+            })
+        }
+    
 
     }
 }

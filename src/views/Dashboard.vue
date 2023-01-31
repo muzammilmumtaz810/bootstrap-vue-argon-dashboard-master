@@ -205,7 +205,12 @@
       }
     },
     mounted() {
-      this.initBigChart(0);
+        let user = localStorage.getItem("user info");
+        if (!user) {
+            this.$router.push({
+                name: 'login'
+            })
+        }
     }
   };
 </script>
