@@ -3,6 +3,7 @@ import AuthLayout from "@/views/Pages/AuthLayout.vue";
 import Update from "@/views/Update.vue";
 import updateemp from "@/views/UpdateEmp.vue";
 import NotFound from "@/views/NotFoundPage.vue";
+import CheckIn from "@/components/CheckIn.vue";
 
 const routes = [
   {
@@ -47,38 +48,33 @@ const routes = [
       },
 
       {
-       name: "ADD RESTAURANTS",
-       path: "/Addrest" ,
-       component: () =>
-       import(/* webpackChunkName: "demo" */ "../views/AddRest.vue")
-     
-    },
-    {
-      name: "ADD EMPLOYEE",
-      path: "/add" ,
-      component: () =>
-      import(/* webpackChunkName: "demo" */ "../views/Add.vue")
-    
-     },
-     {
-    name: "RESTAURANTS",
-    path: "/rest" ,
-    component: () =>
-    import(/* webpackChunkName: "demo" */ "../views/RestList.vue")
-  
-     },
-     {
-     name: "EMPLOYEE",
-     path: "/emp" ,
-     component: () =>
-     import(/* webpackChunkName: "demo" */ "../views/EmpList.vue")
-
-    },
-
+        name: "ADD RESTAURANTS",
+        path: "/Addrest",
+        component: () =>
+          import(/* webpackChunkName: "demo" */ "../views/AddRest.vue")
+      },
+      {
+        name: "ADD EMPLOYEE",
+        path: "/add",
+        component: () =>
+          import(/* webpackChunkName: "demo" */ "../views/Add.vue")
+      },
+      {
+        name: "RESTAURANTS",
+        path: "/rest",
+        component: () =>
+          import(/* webpackChunkName: "demo" */ "../views/RestList.vue")
+      },
+      {
+        name: "EMPLOYEE",
+        path: "/emp",
+        component: () =>
+          import(/* webpackChunkName: "demo" */ "../views/EmpList.vue")
+      },
 
       { name: "UPDATE RESTAURANTS", component: Update, path: "/update/:id" },
       { name: "UPDATE EMPLOYEE", component: updateemp, path: "/updateemp/:id" },
-      
+      { name: "checkin", component: CheckIn, path: "/checkin" }
     ]
   },
   {
@@ -98,8 +94,8 @@ const routes = [
         component: () =>
           import(/* webpackChunkName: "demo" */ "../views/Pages/Register.vue")
       },
-      
-       { path: "*", component: NotFound }
+
+      { path: "*", component: NotFound }
     ]
   }
 ];

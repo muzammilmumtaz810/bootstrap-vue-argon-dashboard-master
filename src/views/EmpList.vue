@@ -68,8 +68,7 @@
                                     <b-col></b-col>
                                     <b-col></b-col>
                                     <b-col>
-                                      
-                                    
+
                                         <router-link v-if="localStorageValue" to="/add"><button class="btn btn-sm btn-primary ">Add employee</button></router-link>
                                     </b-col>
                                 </b-row>
@@ -88,16 +87,15 @@
                                 </el-table-column>
                                 <el-table-column label="RESTAURANT" min-width="90px" prop="">
                                     <template v-slot="{row}">
-                                        <div v-for="item in resturent" :key="item.id">
+                                        <div v-for="item in retirent" :key="item.id">
 
-                                            <p v-if="row.id==item.resturent_id">
+                                            <p v-if="row.id==item.employe_id">
                                                 {{ item.name }}
                                             </p>
 
                                         </div>
-                                </template>
-                                 </el-table-column>
-                                 
+                                    </template>
+                                </el-table-column>
 
                                 <el-table-column label="ACTIONS" min-width="150px" prop="">
                                     <template v-slot="{row}">
@@ -109,8 +107,8 @@
                                     </template>
                                 </el-table-column>
                             </el-table>
-                           
-                         <b-card-footer class="py-4 d-flex justify-content-end">
+
+                            <b-card-footer class="py-4 d-flex justify-content-end">
 
                                 <base-pagination v-model="currentPage" :per-page="1" :total="5"></base-pagination>
                             </b-card-footer>
@@ -148,15 +146,15 @@ export default {
         return {
             currentPage: 1,
             employe: [],
-            resturent:[]
+            resturent: []
 
         }
     },
     computed: {
-    localStorageValue() {
-      return localStorage.getItem("user info") !== null;
-    }
-},
+        localStorageValue() {
+            return localStorage.getItem("user info") !== null;
+        }
+    },
 
     methods: {
         async loaddata() {
@@ -167,10 +165,9 @@ export default {
 
         },
         async load() {
-          
+
             let result = await axios.get("http://localhost:3000/resturent");
             this.resturent = result.data
-          
 
         },
         async deleteresturent(id) {
@@ -183,14 +180,13 @@ export default {
     mounted() {
         this.loaddata()
         this.load()
-       
+
         let user = localStorage.getItem("user info");
         if (!user) {
             this.$router.push({
                 name: 'login'
             })
         }
-    
 
     }
 }

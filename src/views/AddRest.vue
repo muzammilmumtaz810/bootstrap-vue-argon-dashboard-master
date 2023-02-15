@@ -156,7 +156,8 @@ export default {
       resturent: {
         name: "",
         address: "",
-        contect: ""
+        contect: "",
+        
       }
     };
   },
@@ -177,7 +178,7 @@ export default {
             "http://localhost:3000/employe/" + this.selected[i].id,
             {
                 ...this.selected[i],
-                resturent_id: result.data.id
+                resturent_id: result2.data.id
             }
         );
       }

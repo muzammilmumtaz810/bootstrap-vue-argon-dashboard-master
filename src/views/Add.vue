@@ -75,11 +75,31 @@
                                 </b-row>
                                 <b-row>
                                     <b-col>
-
-                                        <button v-on:click="Addemploye" class="btn btn-sm btn-primary">ADD EMPLOYEE</button>
+                                      <label class="form-control-label"
+                                        >ADD RESTAURANT </label
+                                      >
                                     </b-col>
-
-                                </b-row>
+                                  </b-row>
+                                  <b-row>
+                                    <b-col>
+                                      <b-form-select v-model="selected" multiple>
+                                        <option v-for="item in resturent" :key="item.id" :value="item">
+                                          {{ item.name }}
+                                        </option>
+                                      </b-form-select>
+                                    </b-col>
+                                    <b-col> </b-col>
+                                  </b-row>
+                                  <b-row>
+                                    <b-col class="mt-4">
+                                      <button
+                                        v-on:click="Addemploye"
+                                        class="btn btn-sm btn-primary"
+                                      >
+                                        ADD EMPLOYEE
+                                      </button>
+                                    </b-col>
+                                  </b-row>
                             </div>
                         </b-form>
                     </div>
@@ -98,6 +118,8 @@ export default {
 
     data() {
         return {
+            selected: [],
+            resturent:[],
             employe: {
                 name: '',
                 address: '',
@@ -120,6 +142,16 @@ export default {
                 resturent_id:''
 
             });
+            for (let i = 0; i < this.selected.length; i++) {
+       
+       let result2 = await axios.put(
+           "http://localhost:3000/resturent/" + this.selected[i].id,
+           {
+               ...this.selected[i],
+               employe_id: result2.data.id
+           }
+       );
+     }
 
             if (result.status == 201) {
                 this.$router.push({
@@ -128,8 +160,17 @@ export default {
                 });
             }
 
-        }
+        },
+        async resturentloaddata() {
+      let user = localStorage.getItem("user info");
+            this.name = JSON.parse(user).name
+      let result = await axios.get("http://localhost:3000/resturent");
+      this.resturent = result.data;
+    }
     },
+    mounted(){
+        this.resturentloaddata()
+    }
 
 }
 </script>
